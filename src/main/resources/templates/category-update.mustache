@@ -1,0 +1,15 @@
+<html>
+<body>
+<div> Update category
+    <form method="post" action="/update-category">
+        {{#category}}
+            <input readonly type="number" name="id" value="{{category.id}}"/>
+            <input type="text" name="categoryName" value="{{category.categoryName}}" placeholder="Enter new category name: "/>
+            <input type="text" name="categoryDescription" value="{{category.categoryDescription}}" placeholder="Enter new description of the category: "/>
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+            <button type="submit">Update</button>
+        {{/category}}
+    </form>
+</div>
+</body>
+</html>

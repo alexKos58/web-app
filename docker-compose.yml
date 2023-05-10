@@ -1,0 +1,16 @@
+version: "3.4"
+
+services:
+  #объявляем контейнеры
+  postgres:
+    container_name: postgres
+    #образ контейнера с готового репозитория
+    image: library/postgres
+    environment:
+      POSTGRES_DB: shop_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      #порты будут доступны другим службам, подключенным к той же сети(network),
+      #но не будут опубликованы на хост-компьютере(доступны из вне)
+    ports:
+      - "5432:5432"

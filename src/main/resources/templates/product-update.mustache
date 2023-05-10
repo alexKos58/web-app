@@ -1,0 +1,20 @@
+<html>
+<body>
+<div> Change product
+    <form method="post" action="/product-update">
+        {{#product}}
+            <input readonly type="number" name="id" value="{{product.id}}"/>
+            <input type="text" name="productName" value="{{product.productName}}" placeholder="New product name"/>
+            <input type="text" name="productDescription" value="{{product.productDescription}}"
+                   placeholder="New Product Description"/>
+            <input type="text" name="category" value="{{category.id}}" placeholder="New category id"/>
+            <input type="text" name="productManufacturer" value="{{product.productManufacturer}}"
+                   placeholder="New product manufacturer"/>
+            <input type="text" name="price" value="{{product.price}}" placeholder="New product price"/>
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+            <button type="submit">Update</button>
+        {{/product}}
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<html>
+
+<body>
+<div>
+    <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
+<div> Add category
+    <form method="post">
+        <input type="text" name="name" placeholder="Category name"/>
+        <input type="text" name="description" placeholder="Category Description"/>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        <button type="submit">Insert</button>
+    </form>
+</div>
+<div> Delete category
+    <form method="post" action="delete-category">
+        <input type="text" name="id" placeholder="Enter the id category: "/>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        <button type="submit">Delete</button>
+    </form>
+</div>
+
+<div>List of categories
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#categories}}
+            <tr>
+                <th scope="row">{{id}}</th>
+                <td align="center">{{categoryName}}</td>
+                <td align="center">{{categoryDescription}}</td>
+                <td><a href="/update-category/{{id}}"><button type="submit">Edit</button></a></td>
+            </tr>
+        {{/categories}}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
