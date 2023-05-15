@@ -6,7 +6,6 @@ import ru.kostyushin.webapp.entity.Category;
 import ru.kostyushin.webapp.repository.CategoryRepository;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.Optional;
 
 @Service
 public class CategoryService {
@@ -31,13 +30,9 @@ public class CategoryService {
     }
 
     public void deleteById(Long id) throws EntityNotFoundException {
-        Optional<Category> category = categoryRepository.findById(id);
-        if (category.isPresent()) {
-        categoryRepository.deleteById(id);
-        } else {
-            throw new EntityNotFoundException
-                    ("There is no such category!");
-        }
+        Category category = categoryRepository.findById(id).orElseThrow(
+                () -> new EntityNotFoundException("There is no such category!"));
+        categoryRepository.delete(category);
     }
 
 }

@@ -2,7 +2,6 @@ package ru.kostyushin.webapp.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.kostyushin.webapp.entity.Category;
 import ru.kostyushin.webapp.entity.Product;
 import ru.kostyushin.webapp.repository.ProductRepository;
 
@@ -33,12 +32,8 @@ public class ProductService {
     }
 
     public void deleteById(Long id) throws EntityNotFoundException {
-        Optional<Product> product = productRepository.findById(id);
-        if (product.isPresent()) {
-            productRepository.deleteById(id);
-        } else {
-            throw new EntityNotFoundException
-                    ("There is no such product!");
-        }
+        Product product = productRepository.findById(id).orElseThrow(
+                () -> new EntityNotFoundException("There is no such product!"));
+        productRepository.delete(product);
     }
 }
