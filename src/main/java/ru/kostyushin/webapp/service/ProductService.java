@@ -6,7 +6,6 @@ import ru.kostyushin.webapp.entity.Product;
 import ru.kostyushin.webapp.repository.ProductRepository;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.Optional;
 
 @Service
 public class ProductService {
