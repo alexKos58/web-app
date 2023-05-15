@@ -8,8 +8,8 @@ import ru.kostyushin.webapp.entity.Role;
 import ru.kostyushin.webapp.entity.User;
 import ru.kostyushin.webapp.repository.UserRepository;
 
-import java.util.Collections;
 import java.util.Map;
+import java.util.Set;
 
 @Controller
 public class RegistrationController {
@@ -31,7 +31,7 @@ public class RegistrationController {
         }
 
         user.setActive(true);
-        user.setRoles(Collections.singleton(Role.User));
+        user.setRoles(Set.of(Role.User));
         userRepo.save(user);
 
         return "redirect:/login";
