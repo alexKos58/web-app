@@ -49,7 +49,7 @@ public class CategoryController {
     }
 
 
-    @PostMapping("delete-category")
+    @PostMapping("/delete-category")
     public String deleteCategory(@RequestParam Long id) {
 
         categoryService.deleteById(id);
