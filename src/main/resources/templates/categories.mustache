@@ -16,7 +16,7 @@
     </form>
 </div>
 <div> Delete category
-    <form method="post" action="delete-category">
+    <form method="post" action="/delete-category">
         <input type="text" name="id" placeholder="Enter the id category: "/>
         <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
         <button type="submit">Delete</button>
