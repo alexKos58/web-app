@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.kostyushin.webapp.entity.enums.Role;
 
 import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
